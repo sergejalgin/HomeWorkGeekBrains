@@ -6,14 +6,14 @@
 
 int a, b, c;
 
-int max = 0;
-
 Console.Write("Введите первое число = ");
 int.TryParse(Console.ReadLine()!, out a);
 Console.Write("Введите второе число = ");
 int.TryParse(Console.ReadLine()!, out b);
 Console.Write("Введите третье число = ");
 int.TryParse(Console.ReadLine()!, out c);
+
+int max = a;
 
 if (b > max)
 {
@@ -22,8 +22,6 @@ if (b > max)
 if (c > max)
 {
     max = c;
-    Console.WriteLine($"Максимальное число = {c}");
 }
-else
-    Console.WriteLine($"Максимальное число = {max}");
+Console.WriteLine($"Максимальное число = {max}");
 
