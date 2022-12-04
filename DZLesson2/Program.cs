@@ -4,15 +4,14 @@
 78 -> третьей цифры нет
 32679 -> 6
 */
-int a;
 
 Console.Write($"Ввведите число = ");
-int.TryParse(Console.ReadLine()!, out a);
+string number = Console.ReadLine()!;
 
-
-
-Console.WriteLine($"Третьей цифры нет");
-
-
-
+if (number.Length >= 3)
+{
+    Console.WriteLine($"Третья цифра = {number[2]}");
+}
+else
+    Console.WriteLine($"Третьей цифры нет");
 
