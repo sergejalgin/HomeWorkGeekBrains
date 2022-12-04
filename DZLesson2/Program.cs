@@ -5,13 +5,12 @@
 1 -> нет
 */
 int[] array = { 1, 2, 3, 4, 5, 6, 7 };
-int a = index;
-int index = 4;
+int a;
 
 Console.Write($"Ввведите число = ");
 int.TryParse(Console.ReadLine()!, out a);
 
-if (array[index] <= a)
+if (a <= array[4])
 {
     Console.WriteLine($"Нет");
 }
