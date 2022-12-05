@@ -1,23 +1,23 @@
-﻿/*Задача 19
-Напишите программу, которая принимает на вход пятизначное число 
-и проверяет, является ли оно палиндромом.
-14212 -> нет
-12821 -> да
-23432 -> да
+﻿/*Задача 21
+Напишите программу, которая принимает на вход координаты двух точек 
+и находит расстояние между ними в 3D пространстве.
+A (3,6,8); B (2,1,-7), -> 15.84
+A (7,-5, 0); B (1,-1,9) -> 11.53
 */
-int a;
-Console.Write($"Ввведите пятизначное число = ");
-int.TryParse(Console.ReadLine()!, out a);
+int xa, ya, za, xb, yb, zb;
+Console.Write($"Ввведите координаты x точки A = ");
+int.TryParse(Console.ReadLine()!, out xa);
+Console.Write($"Ввведите координаты y точки A = ");
+int.TryParse(Console.ReadLine()!, out ya);
+Console.Write($"Ввведите координаты y точки A = ");
+int.TryParse(Console.ReadLine()!, out za);
+Console.Write($"Ввведите координаты x точки B = ");
+int.TryParse(Console.ReadLine()!, out xb);
+Console.Write($"Ввведите координаты y точки B = ");
+int.TryParse(Console.ReadLine()!, out yb);
+Console.Write($"Ввведите координаты y точки B = ");
+int.TryParse(Console.ReadLine()!, out zb);
 
-if (a > 9999 && a < 100000)
-{
-    if (a / 10000 == a % 10)
-    {
-        if (a / 1000 % 10 == a / 10 % 10)
-            Console.WriteLine($"Число является полиндромом");
-    }
-    else
-        Console.WriteLine($"Число не является полиндромом");
-}
-else
-    Console.WriteLine($"Неверный ввод");
+double ans = Math.Sqrt((xb - xa) * (xb - xa) + (yb - ya) * (yb - ya) + (zb - za) * (zb - za));
+
+Console.WriteLine($"Расстояние между точками А и B = {Math.Round(ans, 2)}");
