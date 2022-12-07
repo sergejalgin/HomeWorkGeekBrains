@@ -8,7 +8,7 @@
 int N;
 Console.Write($"Ввведите число = ");
 int.TryParse(Console.ReadLine()!, out N);
-double sum = 0;
+int sum = 0;
 while (N > 0)
 {
     sum = sum + N % 10;
