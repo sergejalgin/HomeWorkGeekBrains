@@ -1,23 +1,17 @@
-﻿/*Задача 21
-Напишите программу, которая принимает на вход координаты двух точек 
-и находит расстояние между ними в 3D пространстве.
-A (3,6,8); B (2,1,-7), -> 15.84
-A (7,-5, 0); B (1,-1,9) -> 11.53
+﻿/*Задача 29: Напишите программу, которая задаёт массив из 8 элементов 
+и выводит их на экран.
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+6, 1, 33 -> [6, 1, 33]
 */
-int xa, ya, za, xb, yb, zb;
-Console.Write($"Ввведите координаты x точки A = ");
-int.TryParse(Console.ReadLine()!, out xa);
-Console.Write($"Ввведите координаты y точки A = ");
-int.TryParse(Console.ReadLine()!, out ya);
-Console.Write($"Ввведите координаты y точки A = ");
-int.TryParse(Console.ReadLine()!, out za);
-Console.Write($"Ввведите координаты x точки B = ");
-int.TryParse(Console.ReadLine()!, out xb);
-Console.Write($"Ввведите координаты y точки B = ");
-int.TryParse(Console.ReadLine()!, out yb);
-Console.Write($"Ввведите координаты y точки B = ");
-int.TryParse(Console.ReadLine()!, out zb);
 
-double ans = Math.Sqrt((xb - xa) * (xb - xa) + (yb - ya) * (yb - ya) + (zb - za) * (zb - za));
+int[] array = { 1, 2, 5, 7, 19, 6, 1, 33 };
 
-Console.WriteLine($"Расстояние между точками А и B = {Math.Round(ans, 2)}");
+Console.Write($"-> ");
+for (int i = 0; i < array.Length - 3; i++)
+{
+    Console.Write($"{array[i]} ");
+}
+Console.WriteLine();
+Console.Write($"-> ");
+Console.Write($"{array[5]} {array[6]} {array[7]}");
+Console.WriteLine();
