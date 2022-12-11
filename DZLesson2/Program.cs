@@ -4,7 +4,7 @@
 [345, 897, 568, 234] -> 2
 */
 
-int[] array = new int[1];
+int[] array = new int[4];
 
 for (int i = 0; i < array.Length; i++)
     array[i] = new Random().Next(100, 1000);
@@ -12,13 +12,14 @@ for (int i = 0; i < array.Length; i++)
 PrintArray(array);
 
 
-// 
-// {
-//     int even = array[i] % 2 == 0 ? 0 : 1;
-//     Console.Write($"Количество четных чисел = {even}");
-// }
-// Console.Write($"Нет четных чисел"); 
-// }
+int count = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i] % 2 == 0)
+        count += 1;
+}
+
+Console.WriteLine($"Количество четных чисел = {count}");
 
 
 
