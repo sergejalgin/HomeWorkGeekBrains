@@ -19,7 +19,7 @@ double.TryParse(Console.ReadLine()!, out k2);
 double x = (b2 - b1) / (k1 - k2);
 double y = k1 * x + b1;
 
-Console.WriteLine($"Точка пересечения: ({x};{y})");
+Console.WriteLine($"Точки пересечения: ({x};{y})");
 
 
 
