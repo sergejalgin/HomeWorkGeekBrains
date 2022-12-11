@@ -1,36 +1,40 @@
-﻿/*Задача 38: Задайте массив вещественных чисел. 
-Найдите разницу между максимальным и минимальным элементов массива.
-
-[3 7 22 2 78] -> 76
+﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. 
+Посчитайте, сколько чисел больше 0 ввёл пользователь.
+0, 7, 8, -2, -2 -> 2
+1, -7, 567, 89, 223-> 3
 */
 
-double[] array = new double[5];
+int M = 1;
 
-for (int i = 0; i < array.Length; i++)
-    array[i] = new Random().Next(1, 100) / 10.0;
+List<int> array = new List<int>();
 
-PrintArray(array);
+for (int i = 0; i < 5; i++)
+{
+    Console.Write($"Введите число = ");
+    int.TryParse(Console.ReadLine()!, out M);
+    if (M != 0)
+        array.Add(M);
+}
 Console.WriteLine();
-
-double max = array[0];
-double min = array[0];
-
-for (int i = 1; i < array.Length; i++)
+int count = 0;
+for (int i = 0; i < array.Count; i++)
 {
-    if (array[i] > max)
-        max = array[i];
-    if (array[i] < min)
-        min = array[i];
+    if (array[i] > 0)
+        count += 1;
 }
-Console.WriteLine($"Результат = {max} - {min} = {max - min}");
+Console.WriteLine($"Количество чисел больше 0 = {count}");
 
 
 
 
-void PrintArray(double[] arr)
-{
-    for (int i = 0; i < arr.Length; i++)
-    {
-        Console.Write($"{arr[i]} ");
-    }
-}
+// int count = 0;
+// for (int i = 0; i < 5; i++)
+// {
+//     if (array[i] > 0)
+//         count += 1;
+// }
+// Console.Write($"Числа больше нуля = {count} ");
+
+
+
+
