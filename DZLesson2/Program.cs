@@ -1,26 +1,52 @@
-﻿/*Задача 47. Задайте двумерный массив размером m×n, 
-заполненный случайными вещественными числами.
-m = 3, n = 4.
-0,5 7 -2 -0,2
-1 -3,3 8 -9,9
-8 7,8 -7,1 9
+﻿/*Задача 50. Напишите программу, которая на вход принимает позиции 
+элемента в двумерном массиве, и возвращает значение этого элемента 
+или же указание, что такого элемента нет.
+
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+17 -> такого числа в массиве нет
 */
 
-int m, n;
-Console.Write($"Введите m размерность массива = ");
-int.TryParse(Console.ReadLine()!, out m);
-Console.Write($"Введите n размерность массива = ");
-int.TryParse(Console.ReadLine()!, out n);
 
-double[,] array = new double[m, n];
+int[,] array = new int[3, 4];
+
+int number;
+Console.Write($"Введите число = ");
+int.TryParse(Console.ReadLine()!, out number);
+PrintArray(array);
+Console.WriteLine();
 
 for (int i = 0; i < array.GetLength(0); i++)
 {
-    for (int j = 0; j < array.GetLength(0); j++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        array[i, j] = new Random().Next(-100, 100) / 10.0;
-        Console.Write($"{array[i, j]}   ");
+        if (number != array[i, j])
+        {
+            Console.WriteLine($"Tакого числа {number} в массиве нет");
+            return;
+        }
+        else (number == array[i, j])
+            {
+            Console.WriteLine($"Число {number} в массиве есть");
+            return;
+        }
+
+
     }
-    Console.WriteLine();
 }
 
+
+void PrintArray(int[,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(0); j++)
+        {
+            array[i, j] = new Random().Next(10);
+            Console.Write($"{arr[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
