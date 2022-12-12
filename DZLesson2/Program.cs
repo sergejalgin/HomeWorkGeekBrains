@@ -1,25 +1,26 @@
-﻿/*Задача 43: Напишите программу, которая найдёт точку пересечения 
-двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
-значения b1, k1, b2 и k2 задаются пользователем.
-b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+﻿/*Задача 47. Задайте двумерный массив размером m×n, 
+заполненный случайными вещественными числами.
+m = 3, n = 4.
+0,5 7 -2 -0,2
+1 -3,3 8 -9,9
+8 7,8 -7,1 9
 */
 
-double b1, k1, b2, k2;
+int m, n;
+Console.Write($"Введите m размерность массива = ");
+int.TryParse(Console.ReadLine()!, out m);
+Console.Write($"Введите n размерность массива = ");
+int.TryParse(Console.ReadLine()!, out n);
 
+double[,] array = new double[m, n];
 
-Console.Write("Введите b1: ");
-double.TryParse(Console.ReadLine()!, out b1);
-Console.Write("Введите k1: ");
-double.TryParse(Console.ReadLine()!, out k1);
-Console.Write("Введите b2: ");
-double.TryParse(Console.ReadLine()!, out b2);
-Console.Write("Введите k2: ");
-double.TryParse(Console.ReadLine()!, out k2);
-
-double x = (b2 - b1) / (k1 - k2);
-double y = k1 * x + b1;
-
-Console.WriteLine($"Точки пересечения: ({x};{y})");
-
-
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(0); j++)
+    {
+        array[i, j] = new Random().Next(-100, 100) / 10.0;
+        Console.Write($"{array[i, j]}   ");
+    }
+    Console.WriteLine();
+}
 
