@@ -1,40 +1,26 @@
-﻿/*Задача 50. Напишите программу, которая на вход принимает позиции 
-элемента в двумерном массиве, и возвращает значение этого элемента 
-или же указание, что такого элемента нет.
+﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
+Найдите среднее арифметическое элементов в каждом столбце.
 
 Например, задан массив:
 1 4 7 2
 5 9 2 3
 8 4 2 4
-17 -> такого числа в массиве нет
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
+int[,] array = new int[4, 4];
 
-
-int[,] array = new int[3, 4];
-
-int number;
-Console.Write($"Введите число = ");
-int.TryParse(Console.ReadLine()!, out number);
 PrintArray(array);
 Console.WriteLine();
 
 for (int i = 0; i < array.GetLength(0); i++)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int j = 0; j < array.GetLength(1); j+=3)
     {
-        if (number != array[i, j])
-        {
-            Console.WriteLine($"Tакого числа {number} в массиве нет");
-            return;
-        }
-        else (number == array[i, j])
-            {
-            Console.WriteLine($"Число {number} в массиве есть");
-            return;
-        }
-
-
+        array [i,j] = (array [0,j] + array [1,j] + array [2,j]) / 
     }
+
+
+}
 }
 
 
