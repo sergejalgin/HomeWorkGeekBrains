@@ -18,24 +18,31 @@ int.TryParse(Console.ReadLine()!, out number);
 PrintArray(array);
 Console.WriteLine();
 
+
+bool findNumber = false;
+
 for (int i = 0; i < array.GetLength(0); i++)
 {
     for (int j = 0; j < array.GetLength(1); j++)
     {
-        if (number != array[i, j])
+        if (number == array[i, j])
         {
-            Console.WriteLine($"Tакого числа {number} в массиве нет");
-            return;
+            findNumber = true;
+            break;
         }
-        else (number == array[i, j])
-            {
-            Console.WriteLine($"Число {number} в массиве есть");
-            return;
-        }
-
-
     }
 }
+
+if (findNumber)
+{
+    Console.WriteLine($"Число {number} в массиве есть");
+}
+else
+{
+    Console.WriteLine($"Такого числа {number} нет в массиве");
+}
+
+
 
 
 void PrintArray(int[,] arr)
