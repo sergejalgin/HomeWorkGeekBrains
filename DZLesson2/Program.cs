@@ -31,7 +31,7 @@ for (int i = 0; i < array.GetLength(0); i++)
     }
 }
 
-PrintArray(array);
+PrintArray(array); // Вывод сортированного массива
 
 //Функция вывода массива с рандомными числами
 void PrintArrayRandom(int[,] arr)
