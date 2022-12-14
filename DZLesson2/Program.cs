@@ -12,16 +12,19 @@ int[,] array = new int[4, 4];
 PrintArray(array);
 Console.WriteLine();
 
-for (int i = 0; i < array.GetLength(0); i++)
+
+double arithmeticMean = 0;
+
+for (int j = 0; j < array.GetLength(1); j++)
 {
-    for (int j = 0; j < array.GetLength(1); j+=3)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        array [i,j] = (array [0,j] + array [1,j] + array [2,j]) / 
+        arithmeticMean += array[i, j];
+
     }
-
-
+    Console.WriteLine($"Среднее арифметическое = {arithmeticMean / array.GetLength(0)} ");
 }
-}
+
 
 
 void PrintArray(int[,] arr)
