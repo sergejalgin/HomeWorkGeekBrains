@@ -1,29 +1,84 @@
-﻿/*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
-Напишите программу, которая будет построчно выводить массив, 
-добавляя индексы каждого элемента.
-Массив размером 2 x 2 x 2
-66(0,0,0) 25(0,1,0)
-34(1,0,0) 41(1,1,0)
-27(0,0,1) 90(0,1,1)
-26(1,0,1) 55(1,1,1)
+﻿/*Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+Например, на выходе получается вот такой массив:
+01 02 03 04
+12 13 14 05
+11 16 15 06
+10 09 08 07
 */
-int[,,] array = new int[2, 2, 2];
 
-PrintArray3(array); // Вывод массива
+// 1 вариант
+// int[,] array = new int[4, 4];
+// int temp = array.GetLength(0) * array.GetLength(1);
+// int k = 1;
+// int i = 0;
+// int j = 0;
+// while (k <= temp)
+// {
+//     array[i, j] = k;
+//     k++;
+//     if (i <= j + 1 && i + j < array.GetLength(1) - 1)
+//         j++;
+//     else if (i < j && i + j >= array.GetLength(0) - 1)
+//         i++;
+//     else if (i >= j && i + j > array.GetLength(1) - 1)
+//         j--;
+//     else
+//         i--;
+// }
 
-// Функция вывода трёхмерного массива с индексами
-void PrintArray3(int[,,] arr)
+// Print(array);
+
+
+// void Print(int[,] arr)// Вывод массива
+// {
+//     for (int i = 0; i < arr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arr.GetLength(1); j++)
+//         {
+//             Console.Write($"{arr[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// 2 вариант
+int len = 4;
+int[,] table = new int[len, len];
+FillArraySpiral(table, len);
+PrintArray(table);
+
+
+//  Функция заполнения массива по спирали начиная с 1
+void FillArraySpiral(int[,] array, int n)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
+    int i = 0, j = 0;
+    int value = 1;
+    for (int e = 0; e < n * n; e++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        int k = 0;
+        do { array[i, j++] = value++; } while (++k < n - 1);
+        for (k = 0; k < n - 1; k++) array[i++, j] = value++;
+        for (k = 0; k < n - 1; k++) array[i, j--] = value++;
+        for (k = 0; k < n - 1; k++) array[i--, j] = value++;
+        ++i; ++j;
+        n = n < 2 ? 0 : n - 2;
+    }
+}
+
+//  Функция вывода двумерного массива в терминал
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.WriteLine();
-            for (int k = 0; k < arr.GetLength(2); k++)
+            if (array[i, j] < 10)
             {
-                arr[i, j, k] = new Random().Next(90);
-                Console.Write($"{arr[i, j, k]}({i},{j},{k}) ");
+                Console.Write("0" + array[i, j]);
+                Console.Write(" ");
             }
+            else Console.Write(array[i, j] + " ");
         }
+        Console.WriteLine();
     }
 }
