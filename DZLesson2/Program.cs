@@ -1,46 +1,45 @@
-﻿/*Задача 56: Задайте прямоугольный двумерный массив. 
-Напишите программу, которая будет находить строку 
-с наименьшей суммой элементов.
-
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-5 2 6 7
-Программа считает сумму элементов в каждой строке и 
-выдаёт номер строки с наименьшей суммой элементов: 1 строка
+﻿/*Задача 58: Задайте две матрицы. 
+Напишите программу, которая будет находить 
+произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18
 */
-int[,] array = new int[3, 3]; // Размер массива
-PrintArrayRandom(array);
-PrintArray(array); // Вывод рандомного массива
+int[,] array = new int[2, 2]; // Размер 1 массива
+int[,] array2 = new int[3, 3]; // Размер 2 массива
+
+PrintArrayRandom(array); // Генерация чисел 1 массива
+PrintArrayRandom(array2); // Генерация чисел 2 массива
+PrintArray(array); // Вывод рандомного 1 массива
+Console.Write($"|");
+PrintArray(array2); // Вывод рандомного 2 массива
 Console.WriteLine();
 
+MethodSumArray(array);
+MethodSumArray(array2);
 
-int minLineSum = 0;
-int sum = 0;
-int minLine = 0;
 
-// Сумма первой строки
-for (int i = 0; i < array.GetLength(0); i++)
+
+Console.WriteLine($"{MethodSumArray(array)} + {MethodSumArray(array2)} = {MethodSumArray(array) + MethodSumArray(array2)}");
+
+// Функция суммы элементов массива
+int MethodSumArray(int[,] arr)
 {
-    minLineSum += array[0, i];
+    int sum = 0;
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            sum += arr[i, j];
+        }
+    }
+    return (sum);
 }
 
-// Сравнение суммы первой строки с другими и поиск строки с наименьшей суммой
-for (int i = 1; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        sum += array[i, j];
-    }
-    if (sum < minLineSum)
-    {
-        minLineSum = sum;
-        minLine = i;
-    }
-    sum = 0;
-}
-Console.WriteLine($"{minLine + 1} строка");
+
 
 
 
